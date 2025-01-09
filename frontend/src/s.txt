@@ -1,0 +1,27 @@
+ server {
+    listen 80;
+    server_name softwaresinfotech.com www.softwaresinfotech.com;
+
+    location / {
+        root /var/www/bbysumit/client/dist;
+        try_files $uri /index.html;
+    }
+}
+
+ server {
+    listen 80;
+    server_name admin.softwaresinfotech.com;
+
+    location / {
+        root /var/www/bbysumit/bbysumit/client/dist;
+        try_files $uri /index.html;
+    }
+}
+
+
+ nano /etc/nginx/sites-available/softwaresinfotech.com.conf
+
+ nano /etc/nginx/sites-available/admin.softwaresinfotech.com.conf
+
+ln -s /etc/nginx/sites-available/softwaresinfotech.com.conf /etc/nginx/sites-enabled/
+ln -s /etc/nginx/sites-available/admin.softwaresinfotech.com.conf /etc/nginx/sites-enabled/
